@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -20,6 +21,7 @@ public class PongPanel extends JPanel {
 	 */
 	public PongPanel() {
 		setPreferredSize(new Dimension(SCREEN_WIDTH, SCREEN_HEIGHT));
+		setBackground(Color.black);
 	}
 	
 	

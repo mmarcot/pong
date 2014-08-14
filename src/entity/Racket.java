@@ -1,6 +1,8 @@
 package entity;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
+
 import static util.Conf.*;
 
 
@@ -24,33 +26,32 @@ public class Racket extends AbstractEntity {
 	}
 
 	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void init() {}
 
 	@Override
 	public void move(int dx, int dy) {
-		// TODO Auto-generated method stub
-		
+		x += dx;
+		y += dy;
 	}
 
 	@Override
 	public void setLocation(int x, int y) {
-		// TODO Auto-generated method stub
-		
+		this.x = x;
+		this.y = y;
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
-		// TODO Auto-generated method stub
-		
+		g.setColor(Color.WHITE);
+		g.drawRect(x, y, width, height);
 	}
 
 	@Override
 	public boolean inBounds(int px, int py) {
-		// TODO Auto-generated method stub
-		return false;
+		if(px > x && px < x+width && py > y && py < y+height)
+			return true;
+		else
+			return false;
 	}
 
 }
