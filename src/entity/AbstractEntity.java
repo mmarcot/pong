@@ -12,21 +12,50 @@ import java.awt.Graphics2D;
 public abstract class AbstractEntity {
 	
 	/** The x coordinate of the entity (top-left corner) */
-	private int x;
+	protected int x;
 	/** The y coordinate of the entity (top-left corner) */
-	private int y;
+	protected int y;
 	/** The width of entity */
-	private int width;
+	protected int width;
 	/** The height of entity */
-	private int height;
+	protected  int height;
 	
 	
+	/**
+	 * Initialize the entity (loading ressources)
+	 */
 	public abstract void init();
-	//public abstract void update();
+	
+	/**
+	 * Move dynamically the entity (from the current location)
+	 * @param dx Dynamic x
+	 * @param dy Dynamic y
+	 */
 	public abstract void move(int dx, int dy);
+	
+	/**
+	 * Set the location to absolute x and y
+	 * @param x The x to set
+	 * @param y The y to set
+	 */
 	public abstract void setLocation(int x, int y);
+	
+	/**
+	 * Draw the entity
+	 * @param g Graphic context
+	 */
 	public abstract void draw(Graphics2D g);
-	public abstract boolean inBounds();
+	
+	/**
+	 * Is the parameter point in bounds of our entity ?
+	 * @param px The x to test
+	 * @param py The y to test
+	 * @return True or false
+	 */
+	public abstract boolean inBounds(int px, int py);
+	
+	
+	
 	
 	
 	
