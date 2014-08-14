@@ -5,7 +5,7 @@ import java.awt.event.KeyEvent;
 
 
 /**
- * Class that define the main state : the game state
+ * Class that defines all the mandatory methods to implements by a game state
  * @author Mallory Marcot
  *
  */
