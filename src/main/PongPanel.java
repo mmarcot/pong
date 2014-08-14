@@ -2,6 +2,8 @@ package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 
 import javax.swing.JPanel;
 
@@ -41,11 +43,12 @@ public class PongPanel extends JPanel {
 	}
 	
 	
-	/**
-	 * Render the game to the screen
-	 */
-	public void render() {
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		g = (Graphics2D) g;
 		
+		//TODO
 	}
 }
 
