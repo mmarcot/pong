@@ -25,33 +25,28 @@ public class Racket extends AbstractEntity {
 		this.height = RACKET_HEIGHT;
 	}
 
-	@Override
-	public void init() {}
-
-	@Override
+	
+	
+	/**
+	 * Move dynamically the entity (from the current location)
+	 * @param dx Dynamic x
+	 * @param dy Dynamic y
+	 */
 	public void move(int dx, int dy) {
 		x += dx;
 		y += dy;
 	}
-
+	
+	
 	@Override
-	public void setLocation(int x, int y) {
-		this.x = x;
-		this.y = y;
-	}
+	public void init() {}
+
+
 
 	@Override
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
 		g.drawRect(x, y, width, height);
-	}
-
-	@Override
-	public boolean inBounds(int px, int py) {
-		if(px > x && px < x+width && py > y && py < y+height)
-			return true;
-		else
-			return false;
 	}
 
 }

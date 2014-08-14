@@ -25,26 +25,26 @@ public abstract class AbstractEntity {
 	 * Initialize the entity (loading ressources)
 	 */
 	public abstract void init();
-	
+
 	/**
-	 * Move dynamically the entity (from the current location)
-	 * @param dx Dynamic x
-	 * @param dy Dynamic y
+	 * Draw the entity
+	 * @param g Graphic context
 	 */
-	public abstract void move(int dx, int dy);
+	public abstract void draw(Graphics2D g);
+	
+	
+	
 	
 	/**
 	 * Set the location to absolute x and y
 	 * @param x The x to set
 	 * @param y The y to set
 	 */
-	public abstract void setLocation(int x, int y);
+	public void setLocation(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}	
 	
-	/**
-	 * Draw the entity
-	 * @param g Graphic context
-	 */
-	public abstract void draw(Graphics2D g);
 	
 	/**
 	 * Is the parameter point in bounds of our entity ?
@@ -52,12 +52,12 @@ public abstract class AbstractEntity {
 	 * @param py The y to test
 	 * @return True or false
 	 */
-	public abstract boolean inBounds(int px, int py);
-	
-	
-	
-	
-	
+	public boolean inBounds(int px, int py) {
+		if(px > x && px < x+width && py > y && py < y+height)
+			return true;
+		else
+			return false;
+	}
 	
 	
 	/**
