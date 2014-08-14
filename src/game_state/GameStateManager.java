@@ -82,8 +82,8 @@ public class GameStateManager {
 	/**
 	 * @return The current state
 	 */
-	public int getCurrentState() {
-		return currentState;
+	public AbstractGameState getCurrentState() {
+		return game_states.get(currentState);
 	}
 }
 

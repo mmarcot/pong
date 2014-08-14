@@ -8,10 +8,10 @@ import java.awt.event.KeyEvent;
 
 public class MenuState extends AbstractGameState {
 	
-	private String title = "Pong";
+	private String title = "PONG";
 	private String[] options = {"Start game", "Scores", "Exit"};
-	private Font title_font = new Font("Century Gothic", Font.PLAIN, 35);
-	private Font options_font = new Font("Century Gothic", Font.PLAIN, 20);
+	private Font title_font = new Font("Century Gothic", Font.PLAIN, 70);
+	private Font options_font = new Font("Century Gothic", Font.PLAIN, 30);
 	
 	private int selectedOption = 0;
 	
@@ -41,7 +41,7 @@ public class MenuState extends AbstractGameState {
 		// title :
 		g.setColor(Color.white);
 		g.setFont(title_font);
-		g.drawString(title, 400, 50);
+		g.drawString(title, 400, 150);
 		
 		// options :
 		g.setFont(options_font);
@@ -51,15 +51,25 @@ public class MenuState extends AbstractGameState {
 			else 
 				g.setColor(Color.white);
 			
-			g.drawString(options[i], 400, 100+10*i);
+			g.drawString(options[i], 400, 250+35*i);
 		}
 	}
 	
 
 	@Override
 	public void keyPressed(KeyEvent key) {
-		// TODO Auto-generated method stub
-		
+		if(key.getKeyCode() == KeyEvent.VK_DOWN) {
+			if(selectedOption >= options.length-1) 
+				selectedOption = 0;
+			else
+				selectedOption++;
+		}
+		else if(key.getKeyCode() == KeyEvent.VK_UP) {
+			if(selectedOption <= 0 ) 
+				selectedOption = options.length-1;
+			else
+				selectedOption--;
+		}
 	}
 
 	@Override
