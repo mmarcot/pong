@@ -1,6 +1,7 @@
 package entity;
 
 import java.awt.Graphics2D;
+import static util.Conf.*;
 
 
 /**
@@ -19,6 +20,8 @@ public class Ball extends AbstractEntity {
 	public Ball(int px, int py) {
 		this.x = px;
 		this.y = py;
+		this.width = BALL_SIZE;
+		this.height = width;
 	}
 	
 	@Override

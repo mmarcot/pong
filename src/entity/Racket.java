@@ -1,6 +1,7 @@
 package entity;
 
 import java.awt.Graphics2D;
+import static util.Conf.*;
 
 
 /**
@@ -18,6 +19,8 @@ public class Racket extends AbstractEntity {
 	public Racket(int px, int py) {
 		this.x = px;
 		this.y = py;
+		this.width = RACKET_WIDTH;
+		this.height = RACKET_HEIGHT;
 	}
 
 	@Override
