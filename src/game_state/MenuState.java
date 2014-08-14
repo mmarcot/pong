@@ -4,12 +4,12 @@ import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
 
-public class MainMenuState extends GameState {
+public class MenuState extends AbstractGameState {
 	
 	/**
 	 * Constructor of main menu
 	 */
-	public MainMenuState() {
+	public MenuState() {
 		
 	}
 

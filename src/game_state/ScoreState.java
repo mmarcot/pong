@@ -5,17 +5,17 @@ import java.awt.event.KeyEvent;
 
 
 /**
- * Class that define the main state : the game state
+ * Class that define the score game state
  * @author Mallory Marcot
  *
  */
-public class GameState extends AbstractGameState {
+public class ScoreState extends AbstractGameState {
 	
 	
 	/**
-	 * Constructor of the game state 
+	 * COnstructor of the score state
 	 */
-	public GameState() {
+	public ScoreState() {
 		
 	}
 

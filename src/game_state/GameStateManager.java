@@ -5,13 +5,22 @@ import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 
 
+/**
+ * Deals with game states 
+ * @author Mallory Marcot
+ *
+ */
 public class GameStateManager {
 	/** list of game states */
-	private ArrayList<GameState> game_states;
+	private ArrayList<AbstractGameState> game_states;
 	
+	/** the current game state */
 	private int currentState;
+	/** integer constant for the main menu state */
 	public static final int MAIN_MENU = 0;
+	/** integer constant for the game state */
 	public static final int GAME = 1;
+	/** integer constant for the scoreboard state */
 	public static final int SCORE= 2;
 	
 	
@@ -19,10 +28,10 @@ public class GameStateManager {
 	 * Constructor of the game state manager 
 	 */
 	public GameStateManager() {
-		this.game_states = new ArrayList<GameState>();
+		this.game_states = new ArrayList<AbstractGameState>();
 		this.currentState = MAIN_MENU;
 		
-		game_states.add(new MainMenuState());
+		game_states.add(new MenuState());
 	}
 	
 	
