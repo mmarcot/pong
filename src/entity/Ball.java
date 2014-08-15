@@ -30,8 +30,25 @@ public class Ball extends AbstractEntity {
 		this.x = px;
 		this.y = py;
 		this.width = BALL_SIZE;
-		this.height = width;
+		this.height = BALL_SIZE;
 		
+		initVector();
+	}
+
+	
+	/**
+	 * Constructor of a ball, initialize the ball at middle location
+	 */
+	public Ball() {
+		this.width = BALL_SIZE;
+		this.height = BALL_SIZE;
+		
+		setMiddleLocation();
+		initVector();
+	}
+	
+
+	private void initVector() {
 		// random vect_x and vect_y generation :
 		Random rand_gen = new Random();
 		this.vect_x = rand_gen.nextInt();
@@ -49,6 +66,15 @@ public class Ball extends AbstractEntity {
 	public void setVector(int vect_x, int vect_y) {
 		this.vect_x = vect_x;
 		this.vect_y = vect_y;
+	}
+	
+	
+	/**
+	 * Put the ball in the middle of the screen
+	 */
+	public void setMiddleLocation() {
+		this.x = SCREEN_WIDTH/2 - width/2;
+		this.y = SCREEN_HEIGHT/2 - height/2;
 	}
 	
 	
