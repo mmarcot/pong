@@ -8,11 +8,15 @@ import java.awt.event.KeyEvent;
 
 public class MenuState extends AbstractGameState {
 	
+	/** Game title to display */
 	private String title;
+	/** table of options like "start game", "option", "exit" */
 	private String[] options;
+	/** the title font */
 	private Font title_font;
+	/** the options font */
 	private Font options_font;
-	
+	/** current selected option index */
 	private int selectedOption;
 	
 	
@@ -34,9 +38,9 @@ public class MenuState extends AbstractGameState {
 		this.selectedOption = 0;
 	}
 
+	
 	@Override
 	public void init() {}
-
 	@Override
 	public void update() {}
 
@@ -63,6 +67,7 @@ public class MenuState extends AbstractGameState {
 
 	@Override
 	public void keyPressed(KeyEvent key) {
+		
 		if(key.getKeyCode() == KeyEvent.VK_DOWN) {
 			if(selectedOption >= options.length-1) 
 				selectedOption = 0;
@@ -85,12 +90,14 @@ public class MenuState extends AbstractGameState {
 			case 1: // Option
 				gsm.setCurrentState(GameStateManager.OPTIONS);
 				break;
-			case 2: // EXit
+			case 2: // Exit
+				System.exit(0);
 				break;
 			}
 		}
 	}
 
+	
 	@Override
 	public void keyReleased(KeyEvent key) {}
 }
