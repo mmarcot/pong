@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
+import entity.Ball;
+import entity.Racket;
+import static util.Conf.*;
+
 
 /**
  * Class that defines all the mandatory methods to implements by a game state
@@ -12,31 +16,36 @@ import java.awt.event.KeyEvent;
  */
 public class GameState extends AbstractGameState {
 	
+	private Racket racket_left;
+	private Racket racket_right;
+	private Ball ball;
 	
 	/**
 	 * Constructor of the game state 
 	 */
 	public GameState(GameStateManager gsm) {
 		this.gsm = gsm;
+		
+		racket_left = new Racket(10, 10);
+		racket_right = new Racket(SCREEN_WIDTH - 10 - RACKET_WIDTH, 10);
+		ball = new Ball();
 	}
 
 	
 	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void init() {}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		ball.update();
 	}
 
 	@Override
 	public void draw(Graphics2D g) {
-		g.setColor(Color.green);
-		g.drawRect(0, 0, 200, 100);
+		g.setColor(Color.white);
+		racket_left.draw(g);
+		racket_right.draw(g);
+		ball.draw(g);
 	}
 
 	@Override

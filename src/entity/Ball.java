@@ -88,7 +88,7 @@ public class Ball extends AbstractEntity {
 	
 	
 	/**
-	 * Update the logical part of a ball like moving
+	 * Update the logical part of a ball such as moving
 	 */
 	public void update() {
 		x += vect_x;
@@ -103,7 +103,7 @@ public class Ball extends AbstractEntity {
 	@Override
 	public void draw(Graphics2D g) {
 		g.setColor(Color.white);
-		g.drawOval(x, y, width, height);
+		g.fillOval(x, y, width, height);
 	}
 
 	

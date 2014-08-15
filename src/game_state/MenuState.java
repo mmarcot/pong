@@ -26,15 +26,15 @@ public class MenuState extends AbstractGameState {
 	 */
 	public MenuState(GameStateManager gsm) {
 		this.gsm = gsm;
-		this.title = "PONG";
 		
+		this.title = "PONG";
 		this.options = new String[3];
 		this.options[0] = "Start Game";
 		this.options[1] = "Option";
 		this.options[2] = "Exit";
-		
 		this.title_font = new Font("Century Gothic", Font.PLAIN, 70);
 		this.options_font = new Font("Century Gothic", Font.PLAIN, 30);
+		
 		this.selectedOption = 0;
 	}
 

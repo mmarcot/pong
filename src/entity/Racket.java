@@ -46,7 +46,8 @@ public class Racket extends AbstractEntity {
 	@Override
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
-		g.drawRect(x, y, width, height);
+		g.fillRect(x, y, width, height);
+		
 	}
 
 }
