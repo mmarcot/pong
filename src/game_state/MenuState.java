@@ -20,7 +20,8 @@ public class MenuState extends AbstractGameState {
 	/**
 	 * Constructor of main menu
 	 */
-	public MenuState() {
+	public MenuState(GameStateManager gsm) {
+		this.gsm = gsm;
 		this.title = "PONG";
 		
 		this.options = new String[3];
@@ -34,17 +35,12 @@ public class MenuState extends AbstractGameState {
 	}
 
 	@Override
-	public void init() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void init() {}
 
 	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void update() {}
 
+	
 	@Override
 	public void draw(Graphics2D g) {
 		// title :
@@ -79,11 +75,31 @@ public class MenuState extends AbstractGameState {
 			else
 				selectedOption--;
 		}
+		else if(key.getKeyCode() == KeyEvent.VK_ENTER) {
+			switch(selectedOption) {
+			case 0: // Start game
+				gsm.setCurrentState(GameStateManager.GAME);
+				break;
+			case 1: // Option
+				gsm.setCurrentState(GameStateManager.OPTIONS);
+				break;
+			case 2: // EXit
+				break;
+			}
+		}
 	}
 
 	@Override
-	public void keyReleased(KeyEvent key) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void keyReleased(KeyEvent key) {}
 }
+
+
+
+
+
+
+
+
+
+
+

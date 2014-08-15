@@ -17,11 +17,11 @@ public class GameStateManager {
 	/** the current game state */
 	private int currentState;
 	/** integer constant for the main menu state */
-	public static final int MAIN_MENU = 0;
+	public static final int MENU = 0;
 	/** integer constant for the game state */
 	public static final int GAME = 1;
-	/** integer constant for the scoreboard state */
-	public static final int SCORE= 2;
+	/** integer constant for the option state */
+	public static final int OPTIONS = 2;
 	
 	
 	/**
@@ -29,9 +29,11 @@ public class GameStateManager {
 	 */
 	public GameStateManager() {
 		this.game_states = new ArrayList<AbstractGameState>();
-		this.currentState = MAIN_MENU;
+		this.currentState = MENU;
 		
-		game_states.add(new MenuState());
+		game_states.add(new MenuState(this));
+		game_states.add(new GameState(this));
+		game_states.add(new OptionState(this));
 	}
 	
 	

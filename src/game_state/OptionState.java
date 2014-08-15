@@ -1,5 +1,6 @@
 package game_state;
 
+import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
@@ -15,8 +16,8 @@ public class OptionState extends AbstractGameState {
 	/**
 	 * COnstructor of the score state
 	 */
-	public OptionState() {
-		
+	public OptionState(GameStateManager gsm) {
+		this.gsm = gsm;
 	}
 
 	@Override
@@ -33,8 +34,8 @@ public class OptionState extends AbstractGameState {
 
 	@Override
 	public void draw(Graphics2D g) {
-		// TODO Auto-generated method stub
-		
+		g.setColor(Color.red);
+		g.drawOval(0, 0, 300, 300);
 	}
 
 	@Override
