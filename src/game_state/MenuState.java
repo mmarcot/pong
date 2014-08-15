@@ -69,12 +69,14 @@ public class MenuState extends AbstractGameState {
 			else
 				selectedOption++;
 		}
+		
 		else if(key.getKeyCode() == KeyEvent.VK_UP) {
 			if(selectedOption <= 0 ) 
 				selectedOption = options.length-1;
 			else
 				selectedOption--;
 		}
+		
 		else if(key.getKeyCode() == KeyEvent.VK_ENTER) {
 			switch(selectedOption) {
 			case 0: // Start game

@@ -40,8 +40,9 @@ public class OptionState extends AbstractGameState {
 
 	@Override
 	public void keyPressed(KeyEvent key) {
-		// TODO Auto-generated method stub
-		
+		if(key.getKeyCode() == KeyEvent.VK_ESCAPE) {
+			gsm.setCurrentState(GameStateManager.MENU);
+		}		
 	}
 
 	@Override
