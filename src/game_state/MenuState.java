@@ -8,12 +8,12 @@ import java.awt.event.KeyEvent;
 
 public class MenuState extends AbstractGameState {
 	
-	private String title = "PONG";
-	private String[] options = {"Start game", "Scores", "Exit"};
-	private Font title_font = new Font("Century Gothic", Font.PLAIN, 70);
-	private Font options_font = new Font("Century Gothic", Font.PLAIN, 30);
+	private String title;
+	private String[] options;
+	private Font title_font;
+	private Font options_font;
 	
-	private int selectedOption = 0;
+	private int selectedOption;
 	
 	
 	
@@ -21,7 +21,16 @@ public class MenuState extends AbstractGameState {
 	 * Constructor of main menu
 	 */
 	public MenuState() {
+		this.title = "PONG";
 		
+		this.options = new String[3];
+		this.options[0] = "Start Game";
+		this.options[1] = "Option";
+		this.options[2] = "Exit";
+		
+		this.title_font = new Font("Century Gothic", Font.PLAIN, 70);
+		this.options_font = new Font("Century Gothic", Font.PLAIN, 30);
+		this.selectedOption = 0;
 	}
 
 	@Override

@@ -11,6 +11,7 @@ import java.awt.event.KeyListener;
 
 import javax.swing.JPanel;
 
+import listener.PongPanelListener;
 import static util.Conf.*;
 
 
@@ -19,11 +20,10 @@ import static util.Conf.*;
  * @author Mallory Marcot
  *
  */
-public class PongPanel extends JPanel implements KeyListener, Runnable {
+public class PongPanel extends JPanel {
 
 	private GameStateManager gsm;
-	private int FPS = TARGET_FPS;
-	private Thread thread;
+	private GameThread game_thread;
 	
 	/**
 	 * Constructor of the PongPanel
@@ -35,9 +35,9 @@ public class PongPanel extends JPanel implements KeyListener, Runnable {
 		requestFocus();
 		this.gsm = new GameStateManager();
 		
-		addKeyListener(this);
-		thread = new Thread(this);
-		thread.start();
+		game_thread = new GameThread(this);
+		game_thread.start();
+		addKeyListener(new PongPanelListener(gsm));
 	}
 	
 	
@@ -63,41 +63,6 @@ public class PongPanel extends JPanel implements KeyListener, Runnable {
 		Graphics2D g2 = (Graphics2D) g;
 		
 		gsm.getCurrentState().draw(g2);
-	}
-
-
-	@Override
-	public void keyPressed(KeyEvent e) {
-		gsm.getCurrentState().keyPressed(e);
-	}
-
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	@Override
-	public void run() {
-		while(true) {
-			update();
-			repaint();
-			try {
-				Thread.sleep(1000/FPS);
-			}
-			catch(InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 
 }

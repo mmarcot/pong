@@ -9,13 +9,13 @@ import java.awt.event.KeyEvent;
  * @author Mallory Marcot
  *
  */
-public class ScoreState extends AbstractGameState {
+public class OptionState extends AbstractGameState {
 	
 	
 	/**
 	 * COnstructor of the score state
 	 */
-	public ScoreState() {
+	public OptionState() {
 		
 	}
 
