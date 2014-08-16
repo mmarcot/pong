@@ -21,6 +21,7 @@ public class GameState extends AbstractGameState {
 	private Thread th_ball;
 	private Ball ball;
 	
+	
 	/**
 	 * Constructor of the game state 
 	 */
@@ -39,7 +40,19 @@ public class GameState extends AbstractGameState {
 
 	@Override
 	public void update() {
-		//ball.update();
+		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
+				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
+			ball.setVectorX(-ball.getVect_x());
+		}
+		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
+				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
+			ball.setVectorX(-ball.getVect_x());
+		}
+		
+		if(ball.getY() <= 0)
+			ball.setVectorY(-ball.getVect_y());
+		else if(ball.getY()+BALL_SIZE >= SCREEN_HEIGHT)
+			ball.setVectorY(-ball.getVect_y());
 	}
 
 	@Override
@@ -56,6 +69,14 @@ public class GameState extends AbstractGameState {
 		if(key.getKeyCode() == KeyEvent.VK_ESCAPE) {
 			gsm.setCurrentState(GameStateManager.MENU);
 		}
+		else if(key.getKeyCode() == KeyEvent.VK_Z) 
+			racket_left.up();
+		else if(key.getKeyCode() == KeyEvent.VK_S)
+			racket_left.down();
+		else if(key.getKeyCode() == KeyEvent.VK_UP)	
+			racket_right.up();
+		else if(key.getKeyCode() == KeyEvent.VK_DOWN)
+			racket_right.down();
 	}
 
 	@Override

@@ -22,6 +22,7 @@ public class Ball extends AbstractEntity implements Runnable {
 	private int vect_y;
 	
 	
+
 	/**
 	 * Constructor of a ball
 	 * @param px Initial x of the ball
@@ -53,21 +54,19 @@ public class Ball extends AbstractEntity implements Runnable {
 	 * Initialize the vector of moving with random values
 	 */
 	private void initVector() { 
-		final int MAX = 5;
-		
 		// random generator :
 		Random rand_gen = new Random();
 		
 		// vect_x :
-		this.vect_x = rand_gen.nextInt(MAX);
+		this.vect_x = rand_gen.nextInt(SPEED_BALL);
 		this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
 		while(vect_x == 0) {
-			this.vect_x = rand_gen.nextInt(MAX);
+			this.vect_x = rand_gen.nextInt(SPEED_BALL);
 			this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
 		}
 		
 		// vext_y :
-		this.vect_y = rand_gen.nextInt(MAX);
+		this.vect_y = rand_gen.nextInt(SPEED_BALL);
 		this.vect_y = rand_gen.nextBoolean() ? -vect_y : vect_y;
 	}
 	
@@ -134,6 +133,21 @@ public class Ball extends AbstractEntity implements Runnable {
 		g.setColor(Color.white);
 		g.fillOval(x, y, width, height);
 	}
+	
+	
+	/**
+	 * @return the vect_x
+	 */
+	public int getVect_x() {
+		return vect_x;
+	}
 
+
+	/**
+	 * @return the vect_y
+	 */
+	public int getVect_y() {
+		return vect_y;
+	}
 	
 }

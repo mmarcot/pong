@@ -38,6 +38,22 @@ public class Racket extends AbstractEntity {
 	}
 	
 	
+	/**
+	 * Move racket up
+	 */
+	public void up() {
+		y -= RACKET_MOVE_PX;
+	}
+	
+	
+	/**
+	 * Move racket down
+	 */
+	public void down() {
+		y += RACKET_MOVE_PX;
+	}
+	
+	
 	@Override
 	public void init() {}
 
