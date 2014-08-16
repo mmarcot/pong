@@ -42,7 +42,8 @@ public class Racket extends AbstractEntity {
 	 * Move racket up
 	 */
 	public void up() {
-		y -= RACKET_MOVE_PX;
+		if(y > 0)
+			y -= RACKET_MOVE_PX;
 	}
 	
 	
@@ -50,7 +51,8 @@ public class Racket extends AbstractEntity {
 	 * Move racket down
 	 */
 	public void down() {
-		y += RACKET_MOVE_PX;
+		if(y+RACKET_HEIGHT < SCREEN_HEIGHT)
+			y += RACKET_MOVE_PX;
 	}
 	
 	
