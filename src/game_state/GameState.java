@@ -43,7 +43,7 @@ public class GameState extends AbstractGameState {
 	}
 
 	@Override
-	public synchronized void draw(Graphics2D g) {
+	public void draw(Graphics2D g) {
 		g.setColor(Color.white);
 		racket_left.draw(g);
 		racket_right.draw(g);

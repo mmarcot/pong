@@ -48,7 +48,10 @@ public class Ball extends AbstractEntity implements Runnable {
 	}
 	
 
-	private void initVector() { //TODO modify
+	/**
+	 * Initialize the vector of moving with random values
+	 */
+	private void initVector() { 
 		final int MAX = 5;
 		
 		// random generator :
