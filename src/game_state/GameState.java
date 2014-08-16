@@ -18,6 +18,7 @@ public class GameState extends AbstractGameState {
 	
 	private Racket racket_left;
 	private Racket racket_right;
+	private Thread th_ball;
 	private Ball ball;
 	
 	/**
@@ -29,25 +30,27 @@ public class GameState extends AbstractGameState {
 		racket_left = new Racket(10, 10);
 		racket_right = new Racket(SCREEN_WIDTH - 10 - RACKET_WIDTH, 10);
 		ball = new Ball();
+		th_ball = new Thread(ball);
+		th_ball.start();
 	}
 
-	
 	@Override
 	public void init() {}
 
 	@Override
 	public void update() {
-		ball.update();
+		//ball.update();
 	}
 
 	@Override
-	public void draw(Graphics2D g) {
+	public synchronized void draw(Graphics2D g) {
 		g.setColor(Color.white);
 		racket_left.draw(g);
 		racket_right.draw(g);
 		ball.draw(g);
 	}
 
+	
 	@Override
 	public void keyPressed(KeyEvent key) {
 		if(key.getKeyCode() == KeyEvent.VK_ESCAPE) {

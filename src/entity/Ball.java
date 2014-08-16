@@ -13,7 +13,7 @@ import java.util.Random;
  * @author Mallory Marcot
  *
  */
-public class Ball extends AbstractEntity {
+public class Ball extends AbstractEntity implements Runnable {
 
 	/** Moving vector on x axis */
 	private int vect_x;
@@ -48,13 +48,23 @@ public class Ball extends AbstractEntity {
 	}
 	
 
-	private void initVector() {
-		// random vect_x and vect_y generation :
+	private void initVector() { //TODO modify
+		final int MAX = 5;
+		
+		// random generator :
 		Random rand_gen = new Random();
-		this.vect_x = rand_gen.nextInt();
-		while(vect_x < 0.3)
-			this.vect_x = rand_gen.nextInt();
-		this.vect_y = rand_gen.nextInt();
+		
+		// vect_x :
+		this.vect_x = rand_gen.nextInt(MAX);
+		this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
+		while(vect_x == 0) {
+			this.vect_x = rand_gen.nextInt(MAX);
+			this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
+		}
+		
+		// vext_y :
+		this.vect_y = rand_gen.nextInt(MAX);
+		this.vect_y = rand_gen.nextBoolean() ? -vect_y : vect_y;
 	}
 	
 	
@@ -88,11 +98,26 @@ public class Ball extends AbstractEntity {
 	
 	
 	/**
-	 * Update the logical part of a ball such as moving
+	 * Method that set the moving vector in y
+	 * @param vect_y Moving in y	
 	 */
-	public void update() {
-		x += vect_x;
-		y += vect_y;
+	public void setVectorY(int vect_y) {
+		this.vect_y = vect_y;
+	}
+	
+	
+	@Override
+	public void run() {
+		while(true) {
+			x += vect_x;
+			y += vect_y;
+			try {
+				Thread.sleep(1000/TARGET_FPS);
+			}
+			catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	
