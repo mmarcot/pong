@@ -21,21 +21,6 @@ public class Ball extends AbstractEntity {
 	/** Moving vector on y axis */
 	private int vect_y;
 	
-	
-
-	/**
-	 * Constructor of a ball
-	 * @param px Initial x of the ball
-	 * @param py Initial y of the ball
-	 */
-	public Ball(int px, int py) {
-		this.x = px;
-		this.y = py;
-		this.width = BALL_SIZE;
-		this.height = BALL_SIZE;
-		
-		initVector();
-	}
 
 	
 	/**

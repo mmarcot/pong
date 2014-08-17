@@ -38,24 +38,28 @@ public class GameState extends AbstractGameState {
 	@Override
 	public void update() {
 		
+		checkCollision();
+		
 		// update entities :
 		ball.update();
 		racket_left.update();
 		racket_right.update();
+	}
+
+	private void checkCollision() {
+		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
+				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
+			ball.setVectorX(-ball.getVect_x());
+		}
+		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
+				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
+			ball.setVectorX(-ball.getVect_x());
+		}
 		
-//		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
-//				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
-//			ball.setVectorX(-ball.getVect_x());
-//		}
-//		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
-//				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
-//			ball.setVectorX(-ball.getVect_x());
-//		}
-//		
-//		if(ball.getY() <= 0)
-//			ball.setVectorY(-ball.getVect_y());
-//		else if(ball.getY()+BALL_SIZE >= SCREEN_HEIGHT)
-//			ball.setVectorY(-ball.getVect_y());
+		if(ball.getY() <= 0)
+			ball.setVectorY(-ball.getVect_y());
+		else if(ball.getY()+BALL_SIZE >= SCREEN_HEIGHT)
+			ball.setVectorY(-ball.getVect_y());
 	}
 
 	@Override
