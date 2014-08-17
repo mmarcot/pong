@@ -21,10 +21,10 @@ public class Conf {
 	public static final int RACKET_HEIGHT = 100;
 	
 	/** wanted FPS */
-	public static final int TARGET_FPS = 60;
+	public static final int TARGET_FPS = 100;
 	
 	/** number of pixels to move for each loop */
-	public static final int RACKET_MOVE_PX = 7;
+	public static final int SPEED_RACKET = 5;
 	public static final int SPEED_BALL = 3;
 }
 

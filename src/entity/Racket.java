@@ -37,9 +37,9 @@ public class Racket extends AbstractEntity {
 	@Override
 	public void update() {
 		if(moving_up && y > 0)
-			y -= RACKET_MOVE_PX;
+			y -= SPEED_RACKET;
 		if(moving_down && y+RACKET_HEIGHT < SCREEN_HEIGHT)
-			y += RACKET_MOVE_PX;
+			y += SPEED_RACKET;
 	}
 	
 	

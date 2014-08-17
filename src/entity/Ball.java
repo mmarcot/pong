@@ -10,7 +10,7 @@ import java.util.Random;
 
 
 /**
- * Class that d0efine a ball in the pong game
+ * Class that define a ball in the pong game
  * @author Mallory Marcot
  *
  */
@@ -73,8 +73,8 @@ public class Ball extends AbstractEntity {
 	
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		x += vect_x;
+		y += vect_y;
 	}
 	
 	
