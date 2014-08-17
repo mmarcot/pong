@@ -13,6 +13,12 @@ import static util.Conf.*;
  */
 public class Racket extends AbstractEntity {
 	
+	/** Is the racket moving up ? */
+	private boolean moving_up;
+	/** Is the racket moving down ? */
+	private boolean moving_down;
+	
+	
 	/**
 	 * Constructor of a racket
 	 * @param px Initial x of the racket
@@ -23,8 +29,18 @@ public class Racket extends AbstractEntity {
 		this.y = py;
 		this.width = RACKET_WIDTH;
 		this.height = RACKET_HEIGHT;
+		this.moving_down = false;
+		this.moving_up = false;
 	}
 
+	
+	@Override
+	public void update() {
+		if(moving_up && y > 0)
+			y -= RACKET_MOVE_PX;
+		if(moving_down && y+RACKET_HEIGHT < SCREEN_HEIGHT)
+			y += RACKET_MOVE_PX;
+	}
 	
 	
 	/**
@@ -38,23 +54,6 @@ public class Racket extends AbstractEntity {
 	}
 	
 	
-	/**
-	 * Move racket up
-	 */
-	public void up() {
-		if(y > 0)
-			y -= RACKET_MOVE_PX;
-	}
-	
-	
-	/**
-	 * Move racket down
-	 */
-	public void down() {
-		if(y+RACKET_HEIGHT < SCREEN_HEIGHT)
-			y += RACKET_MOVE_PX;
-	}
-	
 	
 	@Override
 	public void init() {}
@@ -66,6 +65,38 @@ public class Racket extends AbstractEntity {
 		g.setColor(Color.WHITE);
 		g.fillRect(x, y, width, height);
 		
+	}
+
+
+	/**
+	 * @return the moving_up
+	 */
+	public boolean isMoving_up() {
+		return moving_up;
+	}
+
+
+	/**
+	 * @param moving_up the moving_up to set
+	 */
+	public void setMoving_up(boolean moving_up) {
+		this.moving_up = moving_up;
+	}
+
+
+	/**
+	 * @return the moving_down
+	 */
+	public boolean isMoving_down() {
+		return moving_down;
+	}
+
+
+	/**
+	 * @param moving_down the moving_down to set
+	 */
+	public void setMoving_down(boolean moving_down) {
+		this.moving_down = moving_down;
 	}
 
 }

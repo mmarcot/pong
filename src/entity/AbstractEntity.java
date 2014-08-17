@@ -33,6 +33,11 @@ public abstract class AbstractEntity {
 	public abstract void draw(Graphics2D g);
 	
 	
+	/**
+	 * Update the logical part of entity
+	 */
+	public abstract void update();
+	
 	
 	
 	/**

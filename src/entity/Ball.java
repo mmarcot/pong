@@ -14,7 +14,7 @@ import java.util.Random;
  * @author Mallory Marcot
  *
  */
-public class Ball extends AbstractEntity implements Runnable {
+public class Ball extends AbstractEntity {
 
 	/** Moving vector on x axis */
 	private int vect_x;
@@ -71,6 +71,13 @@ public class Ball extends AbstractEntity implements Runnable {
 	}
 	
 	
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 	/**
 	 * Method that set the moving vector
 	 * @param vect_x Moving in x
@@ -106,21 +113,6 @@ public class Ball extends AbstractEntity implements Runnable {
 	 */
 	public void setVectorY(int vect_y) {
 		this.vect_y = vect_y;
-	}
-	
-	
-	@Override
-	public void run() {
-		while(true) {
-			x += vect_x;
-			y += vect_y;
-			try {
-				Thread.sleep(1000/TARGET_FPS);
-			}
-			catch(InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
 	}
 	
 	

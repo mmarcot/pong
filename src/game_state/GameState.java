@@ -18,7 +18,6 @@ public class GameState extends AbstractGameState {
 	
 	private Racket racket_left;
 	private Racket racket_right;
-	private Thread th_ball;
 	private Ball ball;
 	
 	
@@ -31,8 +30,6 @@ public class GameState extends AbstractGameState {
 		racket_left = new Racket(10, 10);
 		racket_right = new Racket(SCREEN_WIDTH - 10 - RACKET_WIDTH, 10);
 		ball = new Ball();
-		th_ball = new Thread(ball);
-		th_ball.start();
 	}
 
 	@Override
@@ -40,19 +37,25 @@ public class GameState extends AbstractGameState {
 
 	@Override
 	public void update() {
-		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
-				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
-			ball.setVectorX(-ball.getVect_x());
-		}
-		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
-				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
-			ball.setVectorX(-ball.getVect_x());
-		}
 		
-		if(ball.getY() <= 0)
-			ball.setVectorY(-ball.getVect_y());
-		else if(ball.getY()+BALL_SIZE >= SCREEN_HEIGHT)
-			ball.setVectorY(-ball.getVect_y());
+		// update entities :
+		ball.update();
+		racket_left.update();
+		racket_right.update();
+		
+//		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
+//				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
+//			ball.setVectorX(-ball.getVect_x());
+//		}
+//		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
+//				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
+//			ball.setVectorX(-ball.getVect_x());
+//		}
+//		
+//		if(ball.getY() <= 0)
+//			ball.setVectorY(-ball.getVect_y());
+//		else if(ball.getY()+BALL_SIZE >= SCREEN_HEIGHT)
+//			ball.setVectorY(-ball.getVect_y());
 	}
 
 	@Override
@@ -70,19 +73,25 @@ public class GameState extends AbstractGameState {
 			gsm.setCurrentState(GameStateManager.MENU);
 		}
 		else if(key.getKeyCode() == KeyEvent.VK_Z) 
-			racket_left.up();
+			racket_left.setMoving_up(true);
 		else if(key.getKeyCode() == KeyEvent.VK_S)
-			racket_left.down();
+			racket_left.setMoving_down(true);
 		else if(key.getKeyCode() == KeyEvent.VK_UP)	
-			racket_right.up();
+			racket_right.setMoving_up(true);
 		else if(key.getKeyCode() == KeyEvent.VK_DOWN)
-			racket_right.down();
+			racket_right.setMoving_down(true);
 	}
 
 	@Override
 	public void keyReleased(KeyEvent key) {
-		// TODO Auto-generated method stub
-		
+		if(key.getKeyCode() == KeyEvent.VK_Z) 
+			racket_left.setMoving_up(false);
+		else if(key.getKeyCode() == KeyEvent.VK_S)
+			racket_left.setMoving_down(false);
+		else if(key.getKeyCode() == KeyEvent.VK_UP)	
+			racket_right.setMoving_up(false);
+		else if(key.getKeyCode() == KeyEvent.VK_DOWN)
+			racket_right.setMoving_down(false);
 	}
 
 }
