@@ -37,7 +37,7 @@ public class GameState extends AbstractGameState {
 
 	@Override
 	public void update() {
-		
+		// looking for collisions :
 		checkCollision();
 		
 		// update entities :
@@ -46,7 +46,14 @@ public class GameState extends AbstractGameState {
 		racket_right.update();
 	}
 
+	
+	/**
+	 * Methods that checks the entities coordinates to find out 
+	 * collisions. In case of collision, it manage to change ball's vectors
+	 */
 	private void checkCollision() {
+		
+		// ball collision with rackets :
 		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
 				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
 			ball.setVectorX(-ball.getVect_x());
@@ -56,11 +63,13 @@ public class GameState extends AbstractGameState {
 			ball.setVectorX(-ball.getVect_x());
 		}
 		
+		// ball collision with screen border :
 		if(ball.getY() <= 0)
 			ball.setVectorY(-ball.getVect_y());
 		else if(ball.getY()+BALL_SIZE >= SCREEN_HEIGHT)
 			ball.setVectorY(-ball.getVect_y());
 	}
+	
 
 	@Override
 	public void draw(Graphics2D g) {
