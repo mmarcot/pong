@@ -41,15 +41,11 @@ public class Ball extends AbstractEntity {
 		Random rand_gen = new Random();
 		
 		// vect_x :
-		this.vect_x = rand_gen.nextDouble();
+		this.vect_x = 1 + rand_gen.nextDouble();
 		this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
-		while(vect_x == 0) {
-			this.vect_x = rand_gen.nextDouble();
-			this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
-		}
 		
 		// vext_y :
-		this.vect_y = rand_gen.nextDouble();
+		this.vect_y = 1 + rand_gen.nextDouble();
 		this.vect_y = rand_gen.nextBoolean() ? -vect_y : vect_y;
 	}
 	

@@ -18,7 +18,7 @@ public abstract class AbstractEntity {
 	/** The width of entity */
 	protected int width;
 	/** The height of entity */
-	protected  int height;
+	protected int height;
 	
 	
 	/**
