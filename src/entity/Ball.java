@@ -2,6 +2,8 @@ package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
+
 import static util.Conf.*;
 
 import java.util.Random;
@@ -119,6 +121,17 @@ public class Ball extends AbstractEntity {
 	 */
 	public double getVect_y() {
 		return vect_y;
+	}
+	
+	
+	/**
+	 * @return The ball's center 
+	 */
+	public Point getCenter() {
+		double center_x = x + width/2;
+		double center_y = y + height/2;
+		
+		return new Point((int)center_x, (int)center_y);
 	}
 	
 }

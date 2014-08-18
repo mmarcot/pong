@@ -26,6 +26,15 @@ public class Conf {
 	/** number of pixels to move for each loop */
 	public static final int SPEED_RACKET = 5;
 	public static final int SPEED_BALL = 3;
+	
+	// Variations of balls vectors when touching a racket :
+	public static final double VECTOR_Y_VARIATION_UP_DOWN = 0.2;
+	public static final double VECTOR_Y_VARIATION_UP_MID_DOWN_MID = 0.1;
+	public static final double VECTOR_Y_VARIATION_MID = 0;
+	public static final double VECTOR_X_VARIATION_UP_DOWN = 0.2;
+	public static final double VECTOR_X_VARIATION_UP_MID_DOWN_MID = 0.1;
+	public static final double VECTOR_X_VARIATION_MID = 0;
+	
 }
 
 

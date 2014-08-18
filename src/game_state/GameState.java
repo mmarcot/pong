@@ -53,15 +53,19 @@ public class GameState extends AbstractGameState {
 	 */
 	private void checkCollision() {
 		
-		// ball collision with rackets :
-		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
-				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
-			ball.setVectorX(-ball.getVect_x());
-		}
-		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
-				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
-			ball.setVectorX(-ball.getVect_x());
-		}
+		
+		
+		
+		
+//		// ball collision with rackets :
+//		if(racket_left.inBounds(ball.getX(), ball.getY()) ||
+//				racket_left.inBounds(ball.getX(), ball.getY()+BALL_SIZE)) {
+//			ball.setVectorX(-ball.getVect_x());
+//		}
+//		else if(racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()) ||
+//				racket_right.inBounds(ball.getX()+BALL_SIZE, ball.getY()+BALL_SIZE)) {
+//			ball.setVectorX(-ball.getVect_x());
+//		}
 		
 		// ball collision with screen border :
 		if(ball.getY() <= 0)

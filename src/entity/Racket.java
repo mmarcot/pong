@@ -18,6 +18,12 @@ public class Racket extends AbstractEntity {
 	/** Is the racket moving down ? */
 	private boolean moving_down;
 	
+	// constants for collision area with the ball :
+	public static final int UP = 0;
+	public static final int UP_MID = 1;
+	public static final int MID = 2;
+	public static final int DOWN_MID = 3;
+	public static final int DOWN = 4;
 	
 	/**
 	 * Constructor of a racket
@@ -99,4 +105,47 @@ public class Racket extends AbstractEntity {
 		this.moving_down = moving_down;
 	}
 
+
+	/**
+	 * Methods that gives you the part of the racket that the ball has touched
+	 * Raise a IllegalArgumentException if the y gives in parameter are not on the racket
+	 * @param y of the ball
+	 * @return Constant int for area (UP, UP_MID, MID, DOWN_MID, DOWN) 
+	 */
+	public int getCollisionArea(double p_y) {
+		double y_racket = p_y - y;
+		int ret = -1;
+
+		// exception :
+		if(y_racket < 0)
+			throw new IllegalArgumentException();
+		
+		// searching area :
+		if(y_racket < 15 && y_racket >= 0)
+			ret = UP;
+		else if(y_racket < 35)
+			ret = UP_MID;
+		else if(y_racket < 65)
+			ret = MID;
+		else if(y_racket < 85)
+			ret = DOWN_MID;
+		else
+			ret = DOWN;
+			
+		return ret;
+	}
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
