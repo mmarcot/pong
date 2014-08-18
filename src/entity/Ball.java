@@ -47,7 +47,7 @@ public class Ball extends AbstractEntity {
 		this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
 		
 		// vext_y :
-		this.vect_y = 1 + rand_gen.nextDouble();
+		this.vect_y = 0;// + rand_gen.nextDouble();
 		this.vect_y = rand_gen.nextBoolean() ? -vect_y : vect_y;
 	}
 	
@@ -134,4 +134,11 @@ public class Ball extends AbstractEntity {
 		return new Point((int)center_x, (int)center_y);
 	}
 	
+	
+	/**
+	 * @return The radius of the ball
+	 */
+	public double getRadius() {
+		return width/2;
+	}
 }

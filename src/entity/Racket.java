@@ -19,11 +19,11 @@ public class Racket extends AbstractEntity {
 	private boolean moving_down;
 	
 	// constants for collision area with the ball :
-	public static final int UP = 0;
-	public static final int UP_MID = 1;
-	public static final int MID = 2;
-	public static final int DOWN_MID = 3;
-	public static final int DOWN = 4;
+	public static final int UP_AREA = 0;
+	public static final int UP_MID_AREA = 1;
+	public static final int MID_AREA = 2;
+	public static final int DOWN_MID_AREA = 3;
+	public static final int DOWN_AREA = 4;
 	
 	/**
 	 * Constructor of a racket
@@ -122,15 +122,15 @@ public class Racket extends AbstractEntity {
 		
 		// searching area :
 		if(y_racket < 15 && y_racket >= 0)
-			ret = UP;
+			ret = UP_AREA;
 		else if(y_racket < 35)
-			ret = UP_MID;
+			ret = UP_MID_AREA;
 		else if(y_racket < 65)
-			ret = MID;
+			ret = MID_AREA;
 		else if(y_racket < 85)
-			ret = DOWN_MID;
+			ret = DOWN_MID_AREA;
 		else
-			ret = DOWN;
+			ret = DOWN_AREA;
 			
 		return ret;
 	}

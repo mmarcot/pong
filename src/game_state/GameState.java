@@ -1,6 +1,7 @@
 package game_state;
 
 import java.awt.Color;
+
 import java.awt.Graphics2D;
 import java.awt.event.KeyEvent;
 
@@ -53,8 +54,60 @@ public class GameState extends AbstractGameState {
 	 */
 	private void checkCollision() {
 		
-		
-		
+		if(racket_left.inBounds(ball.getCenter().getX() - ball.getRadius(),
+								ball.getCenter().getY())) {
+			
+			ball.setVectorX(-ball.getVect_x());
+			
+			int racket_area = racket_left.getCollisionArea(ball.getCenter().getY());
+			if(racket_area == Racket.UP_AREA) {
+				ball.setVectorY(ball.getVect_y() - VECTOR_Y_VARIATION_UP_DOWN);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_DOWN);
+			}
+			else if(racket_area == Racket.UP_MID_AREA) {
+				ball.setVectorY(ball.getVect_y() - VECTOR_Y_VARIATION_UP_MID_DOWN_MID);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_MID_DOWN_MID);				
+			}
+			else if(racket_area == Racket.MID_AREA) {
+				ball.setVectorY(ball.getVect_y() + VECTOR_Y_VARIATION_MID);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_MID);
+			}
+			else if(racket_area == Racket.DOWN_MID_AREA) {
+				ball.setVectorY(ball.getVect_y() + VECTOR_Y_VARIATION_UP_MID_DOWN_MID);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_MID_DOWN_MID);
+			}
+			else if(racket_area == Racket.DOWN_AREA) {
+				ball.setVectorY(ball.getVect_y() + VECTOR_Y_VARIATION_UP_DOWN);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_DOWN);				
+			}
+		}
+		else if(racket_right.inBounds(ball.getCenter().getX() + ball.getRadius(),
+				ball.getCenter().getY())) {
+
+			ball.setVectorX(-ball.getVect_x());
+			
+			int racket_area = racket_right.getCollisionArea(ball.getCenter().getY());
+			if(racket_area == Racket.UP_AREA) {
+				ball.setVectorY(ball.getVect_y() - VECTOR_Y_VARIATION_UP_DOWN);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_DOWN);
+			}
+			else if(racket_area == Racket.UP_MID_AREA) {
+				ball.setVectorY(ball.getVect_y() - VECTOR_Y_VARIATION_UP_MID_DOWN_MID);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_MID_DOWN_MID);				
+			}
+			else if(racket_area == Racket.MID_AREA) {
+				ball.setVectorY(ball.getVect_y() + VECTOR_Y_VARIATION_MID);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_MID);
+			}
+			else if(racket_area == Racket.DOWN_MID_AREA) {
+				ball.setVectorY(ball.getVect_y() + VECTOR_Y_VARIATION_UP_MID_DOWN_MID);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_MID_DOWN_MID);
+			}
+			else if(racket_area == Racket.DOWN_AREA) {
+				ball.setVectorY(ball.getVect_y() + VECTOR_Y_VARIATION_UP_DOWN);
+				ball.setVectorX(ball.getVect_x() + VECTOR_X_VARIATION_UP_DOWN);				
+			}
+		}		
 		
 		
 //		// ball collision with rackets :
