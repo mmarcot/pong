@@ -12,9 +12,9 @@ import java.awt.Graphics2D;
 public abstract class AbstractEntity {
 	
 	/** The x coordinate of the entity (top-left corner) */
-	protected int x;
+	protected double x;
 	/** The y coordinate of the entity (top-left corner) */
-	protected int y;
+	protected double y;
 	/** The width of entity */
 	protected int width;
 	/** The height of entity */
@@ -45,7 +45,7 @@ public abstract class AbstractEntity {
 	 * @param x The x to set
 	 * @param y The y to set
 	 */
-	public void setLocation(int x, int y) {
+	public void setLocation(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}	
@@ -57,7 +57,7 @@ public abstract class AbstractEntity {
 	 * @param py The y to test
 	 * @return True or false
 	 */
-	public boolean inBounds(int px, int py) {
+	public boolean inBounds(double px, double py) {
 		if(px > x && px < x+width && py > y && py < y+height)
 			return true;
 		else
@@ -68,13 +68,13 @@ public abstract class AbstractEntity {
 	/**
 	 * @return the x
 	 */
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 	/**
 	 * @return the y
 	 */
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 	/**

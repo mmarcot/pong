@@ -48,7 +48,7 @@ public class Racket extends AbstractEntity {
 	 * @param dx Dynamic x
 	 * @param dy Dynamic y
 	 */
-	public void move(int dx, int dy) {
+	public void move(double dx, double dy) {
 		x += dx;
 		y += dy;
 	}
@@ -63,7 +63,7 @@ public class Racket extends AbstractEntity {
 	@Override
 	public void draw(Graphics2D g) {
 		g.setColor(Color.WHITE);
-		g.fillRect(x, y, width, height);
+		g.fillRect((int)x, (int)y, width, height);
 		
 	}
 

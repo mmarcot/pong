@@ -2,8 +2,6 @@ package entity;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-
 import static util.Conf.*;
 
 import java.util.Random;
@@ -17,9 +15,9 @@ import java.util.Random;
 public class Ball extends AbstractEntity {
 
 	/** Moving vector on x axis */
-	private int vect_x;
+	private double vect_x;
 	/** Moving vector on y axis */
-	private int vect_y;
+	private double vect_y;
 	
 
 	
@@ -43,15 +41,15 @@ public class Ball extends AbstractEntity {
 		Random rand_gen = new Random();
 		
 		// vect_x :
-		this.vect_x = rand_gen.nextInt(SPEED_BALL);
+		this.vect_x = rand_gen.nextDouble();
 		this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
 		while(vect_x == 0) {
-			this.vect_x = rand_gen.nextInt(SPEED_BALL);
+			this.vect_x = rand_gen.nextDouble();
 			this.vect_x = rand_gen.nextBoolean() ? -vect_x : vect_x;
 		}
 		
 		// vext_y :
-		this.vect_y = rand_gen.nextInt(SPEED_BALL);
+		this.vect_y = rand_gen.nextDouble();
 		this.vect_y = rand_gen.nextBoolean() ? -vect_y : vect_y;
 	}
 	
@@ -68,7 +66,7 @@ public class Ball extends AbstractEntity {
 	 * @param vect_x Moving in x
 	 * @param vect_y Moving in y
 	 */
-	public void setVector(int vect_x, int vect_y) {
+	public void setVector(double vect_x, double vect_y) {
 		this.vect_x = vect_x;
 		this.vect_y = vect_y;
 	}
@@ -87,7 +85,7 @@ public class Ball extends AbstractEntity {
 	 * Method that set the moving vector in x
 	 * @param vect_x Moving in x	
 	 */
-	public void setVectorX(int vect_x) {
+	public void setVectorX(double vect_x) {
 		this.vect_x = vect_x;
 	}
 	
@@ -96,7 +94,7 @@ public class Ball extends AbstractEntity {
 	 * Method that set the moving vector in y
 	 * @param vect_y Moving in y	
 	 */
-	public void setVectorY(int vect_y) {
+	public void setVectorY(double vect_y) {
 		this.vect_y = vect_y;
 	}
 	
@@ -108,14 +106,14 @@ public class Ball extends AbstractEntity {
 	@Override
 	public void draw(Graphics2D g) {
 		g.setColor(Color.white);
-		g.fillOval(x, y, width, height);
+		g.fillOval((int)x, (int)y, width, height);
 	}
 	
 	
 	/**
 	 * @return the vect_x
 	 */
-	public int getVect_x() {
+	public double getVect_x() {
 		return vect_x;
 	}
 
@@ -123,7 +121,7 @@ public class Ball extends AbstractEntity {
 	/**
 	 * @return the vect_y
 	 */
-	public int getVect_y() {
+	public double getVect_y() {
 		return vect_y;
 	}
 	
